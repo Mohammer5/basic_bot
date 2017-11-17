@@ -72,8 +72,8 @@ interface IOrderBookAction extends IAbstractAction {
   orderId?: string;
 }
 
-interface ITradeAction extends IAbstractAction {
-  trade?: Orders.ITrade | Orders.IOwnTrade;
+interface IClosedOrderAction extends IAbstractAction {
+  closedOrder?: Orders.IClosedOrder | Orders.IOwnClosedOrder;
 }
 
 interface IStatusAction extends IAbstractAction {
@@ -99,14 +99,14 @@ interface IStatusState {
   exchangeResponseError: boolean;
 }
 
-interface ITradesState {
-  all: Orders.ITrade[],
+interface IClosedOrderState {
+  all: Orders.IClosedOrder[],
   own: Orders.IOwnOrder[],
 }
 
 interface IRootState {
   balance: IBalanceState;
   orderBook: IOrderBookState;
-  trades: ITradesState;
+  closedOrders: IClosedOrderState;
   status: IStatusState;
 }
