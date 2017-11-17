@@ -1,0 +1,11 @@
+{
+  "name": "basic_bot",
+  "version": "1.0.0",
+  "description": "A basic crypto currency exchange bot",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jan-Gerke Salomon",
+  "license": "ISC"
+}
