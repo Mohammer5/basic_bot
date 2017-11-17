@@ -139,29 +139,100 @@ interface IExchangeGetBalanceResponse {
 interface IGetClosedOrdersParameters {
   amount?: number;
   since?: number;
-  symbol?: Pair;
+  symbol?: ICurrencyPair;
 }
 
 interface IExchange {
+  /*********************************************************
+   *
+   *
+   * These value may change over time or when switching accounts
+   *
+   *
+   *********************************************************/
+  key: string;
+  secret: string;
   fees: IExchangeFees;
 
-  addingOrders$: Rx.ReplaySubject<void>;
-  addingOrders$: Rx.ReplaySubject<void>;
-  deletingOrders$: Rx.ReplaySubject<void>;
-  ordersAdded$: Rx.ReplaySubject<IOwnOrder[]>;
-  ordersUpdated$: Rx.ReplaySubject<IExchangeUpdateOrderResponsep[]>;
-  ordersDeleted$: Rx.ReplaySubject<void>;
-  addingOrdersFailed$: Rx.ReplaySubject<string>;
-  addingOrdersFailed$: Rx.ReplaySubject<string>;
-  deletingOrdersFailed$: Rx.ReplaySubject<string>;
 
+  /*********************************************************
+   *
+   *
+   * These values should never be changed, but accessible from outside
+   *
+   *
+   *********************************************************/
+  readonly addingOrders$: Rx.ReplaySubject<void>;
+  readonly addingOrders$: Rx.ReplaySubject<void>;
+  readonly deletingOrders$: Rx.ReplaySubject<void>;
+  readonly ordersAdded$: Rx.ReplaySubject<IOwnOrder[]>;
+  readonly ordersUpdated$: Rx.ReplaySubject<IExchangeUpdateOrderResponsep[]>;
+  readonly ordersDeleted$: Rx.ReplaySubject<void>;
+  readonly addingOrdersFailed$: Rx.ReplaySubject<string>;
+  readonly addingOrdersFailed$: Rx.ReplaySubject<string>;
+  readonly deletingOrdersFailed$: Rx.ReplaySubject<string>;
+
+
+  /*********************************************************
+   *
+   *
+   * The methods handle orders
+   *
+   *
+   *********************************************************/
+
+  /**
+   * @param {IOpenOrder} order
+   * @returns {Promise<IOwnOrder>}
+   */
   addOrder(order: IOpenOrder): Promise<IOwnOrder>;
+
+  /**
+   * @param {IOpenOrder[]} orders
+   * @returns {Promise<IOwnOrder[]>}
+   */
   addOrders(orders: IOpenOrder[]): Promise<IOwnOrder[]>;
+
+  /**
+   * @param {IOpenOrderUpates} order
+   * @returns {Promise<IExchangeUpdateOrderResponse>}
+   */
   updateOrder(order: IOpenOrderUpates): Promise<IExchangeUpdateOrderResponse>;
+
+  /**
+   * @param {string} orderId
+   * @returns {Promise<void>}
+   */
   deleteOrder(orderId: string): Promise<void>;
 
+
+  /*********************************************************
+   *
+   *
+   * These methods retrieve data
+   *
+   *
+   *********************************************************/
+
+  /**
+   * @returns {Promise<IExchangeGetBalanceResponse>}
+   */
   getBalance(): Promise<IExchangeGetBalanceResponse>;
+
+  /**
+   * @returns {Promise<IOwnOrder[]>}
+   */
   getOpenOrders(): Promise<IOwnOrder[]>;
+
+  /**
+   * @param {IGetClosedOrdersParameters} options
+   * @returns {Promise<IOwnClosedOrder[]>}
+   */
   getOwnClosedOrders(options: IGetClosedOrdersParameters): Promise<IOwnClosedOrder[]>;
+
+  /**
+   * @param {IGetClosedOrdersParameters} options
+   * @returns {Promise<IClosedOrder[]>}
+   */
   getClosedOrders(options?: IGetClosedOrdersParameters): Promise<IClosedOrder[]>;
 }
