@@ -2,7 +2,7 @@ import 'jest';
 import { addBuyOrder } from '../addBuyOrder';
 import { actionSources } from '../../../../constants/actionSources';
 import { orderBook } from '../../../../constants/actions/orderBook';
-import { BTCUSD } from '../../../../modules/currency/currencies';
+import { BTCUSD } from '../../../../module/currency/currencies';
 
 describe('Order Book Actions - Add buy order', () => {
   it('should return an addBuyOrder action object', () => {

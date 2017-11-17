@@ -8,6 +8,20 @@
   },
   "author": "Jan-Gerke Salomon",
   "license": "ISC",
+  "jest": {
+    "roots": [
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "\\.test\\.(ts|tsx|js)$"
+  },
   "dependencies": {
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.34",

@@ -13,8 +13,7 @@
     ]
   },
   "include": [
-    "src/Index/server/bot.ts",
-    "index.d.ts"
+    "src/entry/server/bot.ts",
   ],
   "exclude": [
     "**/*.spec.ts",

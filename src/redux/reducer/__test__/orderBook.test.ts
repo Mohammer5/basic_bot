@@ -1,7 +1,7 @@
 import 'jest';
 import { orderBook as orderBookActions } from '../../../constants/actions/orderBook';
 import { orderBook } from '../orderBook';
-import { BTCUSD } from '../../../modules/currency/currencies';
+import { BTCUSD } from '../../../module/currency/currencies';
 
 describe('Order Book Reducer', () => {
   it('should add a sell order to the initial state', () => {

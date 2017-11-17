@@ -15,19 +15,19 @@ const defaultState: IRootState = {
 
 const sourceToReducerMapping = {
   [actionSources.BALANCE]: (state, action) =>
-    balance(state, action),
+    ({ ...state, balance: balance(state.balance, action)}),
 
   [actionSources.ORDER_BOOK]: (state, action) =>
-    orderBook(state, action),
+    ({ ...state, orderBook: orderBook(state.orderBook, action)}),
 
   [actionSources.TRADES]: (state, action) =>
-    closedOrders(state, action),
+    ({ ...state, closedOrders: closedOrders(state.closedOrders, action)}),
 
   [actionSources.STATUS]: (state, action) =>
-    status(state, action),
+    ({ ...state, status: status(state.status, action)}),
 };
 
 export const rootReducer = (
   state: IRootState = defaultState,
   action: IAbstractAction = defaultAction,
-) => reduce(sourceToReducerMapping)(state)(source)(state)(action.type);
+) => reduce(sourceToReducerMapping)(state)(action)(action.source);

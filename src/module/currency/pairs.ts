@@ -1,4 +1,4 @@
-import { BTC, ETH, LTC, USD } from './products';
+import { BTC, ETH, LTC, USD } from './currencies';
 import { Pair } from './Pair';
 
 export const BTCUSD = new Pair(BTC, USD);

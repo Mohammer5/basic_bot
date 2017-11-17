@@ -1,4 +1,4 @@
-import { closedOrder } from '../../constants/actions/closedOrder';
+import { closedOrders as closedOrderActions } from '../../constants/actions/closedOrders';
 import { defaultAction } from '../../constants/actions/defaultAction';
 import { reduce } from '../../module/redux/reduce';
 
@@ -8,14 +8,14 @@ const defaultState: IClosedOrderState = {
 };
 
 const actionToReducerMapping = {
-  [closedOrder.ADD_CLOSED_ORDER]: (state, action) =>
+  [closedOrderActions.ADD_CLOSED_ORDER]: (state, action) =>
     ({ ...state, all: [ ...state.all, closedOrder as IClosedOrder ]}),
 
-  [closedOrder.ADD_OWN_CLOSED_ORDER]: (state, action) =>
+  [closedOrderActions.ADD_OWN_CLOSED_ORDER]: (state, action) =>
     ({ ...state, own: [ ...state.own, closedOrder as IOwnOrder ]}),
 };
 
 export const closedOrders = (
   state: IClosedOrderState = defaultState,
   action: IClosedOrderAction = defaultAction,
-): IClosedOrderState => reduce(actionToReducerMapping)(state)(action)(state)(action.type);
+): IClosedOrderState => reduce(actionToReducerMapping)(state)(action)(action.type);

@@ -1,7 +1,6 @@
 import 'jest';
 import { removeOrder } from '../removeOrder';
-import IOrder = Orders.IOrder;
-import { LTC, USD } from '../../../../Module/Product/products';
+import { LTC, USD } from '../../../../Module/currency/currencies';
 
 describe('Order Book - Rmove Order Reducer', () => {
   it('should remove an order from a pre-filled order list', () => {
