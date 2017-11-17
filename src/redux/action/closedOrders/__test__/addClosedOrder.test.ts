@@ -1,15 +1,14 @@
 import 'jest';
 import { addClosedOrder } from '../addClosedOrder';
-import { actionSources } from '../../../Constants/actionSources';
-import { closedOrder } from '../../../Constants/actions/closedOrder';
-import IClosedOrder = Orders.IClosedOrder;
-import { pairsToClosedOrder } from '../../../../Constants/pairsToClosedOrder';
+import { actionSources } from '../../../../constants/actionSources';
+import { closedOrder } from '../../../../constants/actions/closedOrder';
+import { BTCUSD } from '../../../../module/currency/pairs';
 
 describe('ClosedOrders Actions - Add closedOrder', () => {
   it('should return a addClosedOrderTime action object', () => {
     const closedOrder: IClosedOrder = {
       id: 'id',
-      pair: pairsToClosedOrder,
+      pair: BTCUSD,
       side: 'buy',
       time: '10000000',
       rate: 250.0,

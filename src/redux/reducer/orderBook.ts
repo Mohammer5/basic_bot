@@ -1,8 +1,8 @@
 import { addOrder } from './orderBook/addOrder';
 import { updateOrder } from './orderBook/updateOrder';
 import { removeOrder } from './orderBook/removeOrder';
-import { orderBook } from '../Constants/actions/orderBook';
-import { defaultAction } from '../Constants/actions/defaultAction';
+import { orderBook } from '../../constants/actions/orderBook';
+import { defaultAction } from '../../constants/actions/defaultAction';
 import { reduce } from '../../module/redux/reduce';
 
 const defaultState: IOrderBookState = {

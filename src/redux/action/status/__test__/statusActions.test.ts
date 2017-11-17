@@ -1,6 +1,6 @@
 import 'jest';
-import { status } from '../../../Constants/actions/status';
-import { actionSources } from '../../../Constants/actionSources';
+import { status } from '../../../../constants/actions/status';
+import { actionSources } from '../../../../constants/actionSources';
 import {
   exchangeResponded,
   exchangeRespondedWithError,

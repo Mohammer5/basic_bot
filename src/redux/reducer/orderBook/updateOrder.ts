@@ -1,4 +1,4 @@
-export function updateOrderReducer(
+export function updateOrder(
   orderList: IOwnOrder[] = [],
   orderId: string,
   order: IOwnOrder,

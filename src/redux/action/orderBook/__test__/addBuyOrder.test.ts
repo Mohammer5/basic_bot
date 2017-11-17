@@ -1,15 +1,14 @@
 import 'jest';
 import { addBuyOrder } from '../addBuyOrder';
-import { actionSources } from '../../../Constants/actionSources';
-import { orderBook } from '../../../Constants/actions/orderBook';
-import { pairsToTrade } from '../../../../Constants/pairsToTrade';
-import IOrder = Orders.IOrder;
+import { actionSources } from '../../../../constants/actionSources';
+import { orderBook } from '../../../../constants/actions/orderBook';
+import { BTCUSD } from '../../../../modules/currency/currencies';
 
 describe('Order Book Actions - Add buy order', () => {
   it('should return an addBuyOrder action object', () => {
     const order: IOrder = {
       id: 'id',
-      pair: pairsToTrade,
+      pair: BTCUSD,
       side: 'buy',
       rate: 250.0,
       volume: 1.01,

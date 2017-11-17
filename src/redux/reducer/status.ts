@@ -1,7 +1,5 @@
-import { status } from '../Constants/actions/status';
-import { defaultAction } from '../Constants/actions/defaultAction';
-import IStatusState = State.IStatusState;
-import IStatusAction = .IStatusAction;
+import { status } from '../../constants/actions/status';
+import { defaultAction } from '../../constants/actions/defaultAction';
 import { reduce } from '../../module/redux/reduce';
 
 export const defaultState: IStatusState = {

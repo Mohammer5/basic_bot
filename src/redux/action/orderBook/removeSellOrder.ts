@@ -1,5 +1,5 @@
-import { actionSources } from '../../Constants/actionSources';
-import { orderBook } from '../../Constants/actions/orderBook';
+import { actionSources } from '../../../constants/actionSources';
+import { orderBook } from '../../../constants/actions/orderBook';
 
 export function removeSellOrder(orderId: string): IOrderBookAction {
   return {

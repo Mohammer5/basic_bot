@@ -1,0 +1,4 @@
+export const closedOrders = {
+  ADD_CLOSED_ORDER: 'ADD_CLOSED_ORDER',
+  ADD_OWN_CLOSED_ORDER: 'ADD_OWN_CLOSED_ORDER',
+};

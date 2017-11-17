@@ -1,5 +1,5 @@
-import { actionSources } from '../../Constants/actionSources';
-import { status } from '../../Constants/actions/status';
+import { actionSources } from '../../../constants/actionSources';
+import { status } from '../../../constants/actions/status';
 
 export function exchangeResponded(): IStatusAction {
   return {

@@ -1,5 +1,5 @@
-import { balance } from '../Constants/actions/balance';
-import { defaultAction } from '../Constants/actions/defaultAction';
+import { balance } from '../../constants/actions/balance';
+import { defaultAction } from '../../constants/actions/defaultAction';
 import { removeFrom } from './balance/removeFrom';
 import { setTo } from './balance/setTo';
 import { addTo } from './balance/addTo';

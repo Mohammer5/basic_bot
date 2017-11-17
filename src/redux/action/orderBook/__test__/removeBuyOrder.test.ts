@@ -1,7 +1,7 @@
 import 'jest';
 import { removeBuyOrder } from '../removeBuyOrder';
-import { actionSources } from '../../../Constants/actionSources';
-import { orderBook } from '../../../Constants/actions/orderBook';
+import { actionSources } from '../../../../constants/actionSources';
+import { orderBook } from '../../../../constants/actions/orderBook';
 
 describe('Order Book Actions - Remove buy order', () => {
   it('should return a removeBuyOrder action object', () => {

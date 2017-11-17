@@ -1,5 +1,5 @@
-import { closedOrder } from '../Constants/actions/closedOrder';
-import { defaultAction } from '../Constants/actions/defaultAction';
+import { closedOrder } from '../../constants/actions/closedOrder';
+import { defaultAction } from '../../constants/actions/defaultAction';
 import { reduce } from '../../module/redux/reduce';
 
 const defaultState: IClosedOrderState = {

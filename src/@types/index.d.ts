@@ -5,11 +5,11 @@
  */
 type FiatCurrency = 'Fiat';
 type CryptoCurrency = 'Crypto';
-type CurrencyType = TFiatCurrency | TCryptoCurrency;
+type CurrencyType = FiatCurrency | CryptoCurrency;
 
 interface ICurrency {
   identifier: string;
-  type: TCurrencyType;
+  type: CurrencyType;
 }
 
 interface ICurrencyPair {
@@ -31,11 +31,17 @@ type FeeMaker = 'maker';
 type FeeType = FeeTaker | FeeMaker;
 
 interface IOpenOrder {
-  pair: IProductPair;
+  pair: ICurrencyPair;
   side: OrderSide;
   rate: number;
   volume: number;
   openTime?: number;
+}
+
+interface IOpenOrderUpates {
+  id: string;
+  rate?: number;
+  volume?: number;
 }
 
 interface IOwnOrder extends IOpenOrder {
@@ -109,4 +115,53 @@ interface IRootState {
   orderBook: IOrderBookState;
   closedOrders: IClosedOrderState;
   status: IStatusState;
+}
+
+/**
+ *
+ * Exchange
+ *
+ **/
+interface IExchangeFees {
+  maker: number;
+  taker: number;
+}
+
+interface IExchangeUpdateOrderResponse {
+  id: string;
+  updates: IOwnOrder;
+}
+
+interface IExchangeGetBalanceResponse {
+  [currency: ICurrency]: number;
+}
+
+interface IGetClosedOrdersParameters {
+  amount?: number;
+  since?: number;
+  symbol?: Pair;
+}
+
+interface IExchange {
+  fees: IExchangeFees;
+
+  addingOrders$: Rx.ReplaySubject<void>;
+  addingOrders$: Rx.ReplaySubject<void>;
+  deletingOrders$: Rx.ReplaySubject<void>;
+  ordersAdded$: Rx.ReplaySubject<IOwnOrder[]>;
+  ordersUpdated$: Rx.ReplaySubject<IExchangeUpdateOrderResponsep[]>;
+  ordersDeleted$: Rx.ReplaySubject<void>;
+  addingOrdersFailed$: Rx.ReplaySubject<string>;
+  addingOrdersFailed$: Rx.ReplaySubject<string>;
+  deletingOrdersFailed$: Rx.ReplaySubject<string>;
+
+  addOrder(order: IOpenOrder): Promise<IOwnOrder>;
+  addOrders(orders: IOpenOrder[]): Promise<IOwnOrder[]>;
+  updateOrder(order: IOpenOrderUpates): Promise<IExchangeUpdateOrderResponse>;
+  deleteOrder(orderId: string): Promise<void>;
+
+  getBalance(): Promise<IExchangeGetBalanceResponse>;
+  getOpenOrders(): Promise<IOwnOrder[]>;
+  getOwnClosedOrders(options: IGetClosedOrdersParameters): Promise<IOwnClosedOrder[]>;
+  getClosedOrders(options?: IGetClosedOrdersParameters): Promise<IClosedOrder[]>;
 }

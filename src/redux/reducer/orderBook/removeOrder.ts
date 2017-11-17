@@ -1,4 +1,4 @@
-export function removeOrderReducer(
+export function removeOrder(
   orderList: IOwnOrder[] = [],
   orderId: string,
 ): IOwnOrder[] {

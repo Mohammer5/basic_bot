@@ -1,5 +1,5 @@
-import { actionSources } from '../../Constants/actionSources';
-import { closedOrder } from '../../Constants/actions/closedOrder';
+import { actionSources } from '../../../constants/actionSources';
+import { closedOrder } from '../../../constants/actions/closedOrder';
 
 export function addOwnClosedOrder(closedOrder: IOwnClosedOrder): IClosedOrderAction {
   return {

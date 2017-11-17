@@ -1,5 +1,5 @@
-import { actionSources } from '../../Constants/actionSources';
-import { balance } from '../../Constants/actions/balance';
+import { actionSources } from '../../../constants/actionSources';
+import { balance } from '../../../constants/actions/balance';
 
 export function add(amount: number, currency: string): IBalanceAction {
   return {

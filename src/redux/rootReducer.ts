@@ -1,5 +1,5 @@
-import { actionSources } from '../Constants/actionSources';
-import { defaultAction } from '../Constants/actions/defaultAction';
+import { actionSources } from '../../constants/actionSources';
+import { defaultAction } from '../../constants/actions/defaultAction';
 import { balance } from './reducer/balance';
 import { orderBook } from './reducer/orderBook';
 import { closedOrders } from './reducer/closedOrders';
