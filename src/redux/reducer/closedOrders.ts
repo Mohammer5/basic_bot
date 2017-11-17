@@ -9,10 +9,10 @@ const defaultState: IClosedOrderState = {
 
 const actionToReducerMapping = {
   [closedOrderActions.ADD_CLOSED_ORDER]: (state, action) =>
-    ({ ...state, all: [ ...state.all, closedOrder as IClosedOrder ]}),
+    ({ ...state, all: [ ...state.all, action.closedOrder as IClosedOrder ]}),
 
   [closedOrderActions.ADD_OWN_CLOSED_ORDER]: (state, action) =>
-    ({ ...state, own: [ ...state.own, closedOrder as IOwnOrder ]}),
+    ({ ...state, own: [ ...state.own, action.closedOrder as IOwnOrder ]}),
 };
 
 export const closedOrders = (

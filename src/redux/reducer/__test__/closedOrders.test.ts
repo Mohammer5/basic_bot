@@ -16,7 +16,7 @@ describe('Trades Reducer', () => {
     };
 
     expect(closedOrders(undefined, {
-      type: closedOrderActions.ADD_OWN_TRADE,
+      type: closedOrderActions.ADD_OWN_CLOSED_ORDER,
       closedOrder: newTrade,
     }).own).toEqual([newTrade]);
   });
@@ -43,7 +43,7 @@ describe('Trades Reducer', () => {
     const previousState = { own: [closedOrderOne], all: [] };
     const expected = [closedOrderOne, closedOrderTwo];
     const actual = closedOrders(previousState, {
-      type: closedOrderActions.ADD_OWN_TRADE,
+      type: closedOrderActions.ADD_OWN_CLOSED_ORDER,
       closedOrder: closedOrderTwo,
     }).own;
 
@@ -60,7 +60,7 @@ describe('Trades Reducer', () => {
     };
 
     expect(closedOrders(undefined, {
-      type: closedOrderActions.ADD_TRADE,
+      type: closedOrderActions.ADD_CLOSED_ORDER,
       closedOrder: newTrade,
     }).all).toEqual([newTrade]);
   });
@@ -83,7 +83,7 @@ describe('Trades Reducer', () => {
     const previousState = { all: [closedOrderOne], own: [] };
     const expected = [closedOrderOne, closedOrderTwo];
     const actual = closedOrders(previousState, {
-      type: closedOrderActions.ADD_TRADE,
+      type: closedOrderActions.ADD_CLOSED_ORDER,
       closedOrder: closedOrderTwo,
     }).all;
 

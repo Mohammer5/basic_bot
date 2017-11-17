@@ -4,6 +4,6 @@ export function setTo(
 ): IBalanceState {
   return {
     ...state,
-    [action.name]: action.value,
+    [action.currency]: action.amount,
   };
 }
